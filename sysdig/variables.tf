@@ -1,0 +1,2 @@
+variable "sysdig" {}
+variable "region" {}
