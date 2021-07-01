@@ -15,7 +15,7 @@ variable "activity_tracker" {
   plan = string
   }) 
   default = {
-    name = "activity_tracker"
+    name = "Activity Tracking"
     plan = "30-day"
   }
 }
