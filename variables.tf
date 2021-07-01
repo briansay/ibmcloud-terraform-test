@@ -15,7 +15,7 @@ variable "logdna" {
   plan = string
   }) 
   default = {
-    name = "logdna"
+    name = "Logging - Platform logs"
     plan = "30-day"
   }
 }
