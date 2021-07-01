@@ -13,9 +13,15 @@ variable "sysdig" {
   type = object({
     name = string
     plan = string
+    parameters = object({
+      default_receiver : bool
+    })
   })
   default = {
     name = "sysdig"
-    plan = "lite"
+    plan = "graduated-tier"
+    parameters = {
+      default_receiver : true,
+    }
   }
 }
