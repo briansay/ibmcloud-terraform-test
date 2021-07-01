@@ -1,6 +1,6 @@
 resource "ibm_iam_access_group" "accgrp_admin" {
   name        = "Admin_Generated"
-  description = "Terraform Generated Admin Group"
+  description = "DO NOT DELETE: Admin access group with full account privileges"
 }
 
 resource "ibm_iam_access_group_policy" "services_admin_group_policy" {
