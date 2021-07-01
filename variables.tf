@@ -16,6 +16,6 @@ variable "logdna" {
   }) 
   default = {
     name = "logdna"
-    plan = "lite"
+    plan = "30-day"
   }
 }
