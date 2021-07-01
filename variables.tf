@@ -8,3 +8,14 @@ variable "ibmcloud_api_key" {
   type        = string
   description = "The IBM Cloud api token"
 }
+
+variable "activity_tracker" {
+  type = object({
+  name    = string
+  plan = string
+  }) 
+  default = {
+    name = "activity_tracker"
+    plan = "30-day"
+  }
+}
