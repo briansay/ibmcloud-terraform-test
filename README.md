@@ -50,6 +50,7 @@ IBM Cloud Schematics requires less configuration and enables you to get started 
 1. [Create an IBM Cloud Schematics instance in your account](https://cloud.ibm.com/docs/schematics?topic=schematics-get-started-terraform)
 2. Fork this repo & copy/store the URL, or copy/store this repo's URL (to be used in the next step)
 3. [Create a workspace in your IBM Cloud Schematics instance](https://cloud.ibm.com/docs/schematics?topic=schematics-workspace-setup)
+4. Ensure `terraform_v0.14` or  higher is selected for the Terraform version when importing your Terraform template
 
 ## Usage
 

@@ -1,3 +1,9 @@
+module "access_group" {
+  source           = "./access_group"
+  admin_users      = var.admin_users
+  admin_group_name = var.admin_group_name
+}
+
 module "logdna" {
   source = "./logdna"
   logdna = {
