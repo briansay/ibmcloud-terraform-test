@@ -1,3 +1,7 @@
+variable "version" {
+  default = "1.27.1"
+}
+
 variable "region" {
   type        = string
   description = "The IBM Cloud region where the cluster will be/has been installed."
