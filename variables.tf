@@ -33,3 +33,9 @@ variable "logdna" {
     plan = "30-day"
   }
 }
+
+variable "admin_group_name" {
+  type = string
+  description = "The name for the admin access group"
+  default = "Admin"
+}

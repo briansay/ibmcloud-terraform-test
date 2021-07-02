@@ -1,5 +1,5 @@
 resource "ibm_iam_access_group" "accgrp_admin" {
-  name        = "Admin_Generated"
+  name        = var.admin_group_name
   description = "DO NOT DELETE: Admin access group with full account privileges"
 }
 
