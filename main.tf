@@ -14,4 +14,5 @@ module "activity_tracker" {
     name = var.activity_tracker.name
     plan = var.activity_tracker.plan
   }
+  region = var.region
 }
