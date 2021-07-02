@@ -21,13 +21,13 @@ variable "admin_users" {
 
     error_message = "Please make sure all emails are valid."
   }
-}    
+}
 
 variable "logdna" {
   type = object({
-    name    = string
+    name = string
     plan = string
-  }) 
+  })
   default = {
     name = "Logging - Platform logs"
     plan = "30-day"
@@ -35,7 +35,7 @@ variable "logdna" {
 }
 
 variable "admin_group_name" {
-  type = string
+  type        = string
   description = "The name for the admin access group"
-  default = "Admin"
+  default     = "Admin"
 }
