@@ -1,7 +1,3 @@
-# module "access_group" {
-#   source = "./access_group"
-# }
-
 module "sysdig" {
   source = "./sysdig"
 

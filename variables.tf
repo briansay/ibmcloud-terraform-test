@@ -18,7 +18,7 @@ variable "sysdig" {
     })
   })
   default = {
-    name = "sysdig"
+    name = "Sysdig - Platform Metrics"
     plan = "graduated-tier"
     parameters = {
       default_receiver : true,
