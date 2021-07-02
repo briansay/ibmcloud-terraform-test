@@ -9,6 +9,7 @@ variable "ibmcloud_api_key" {
   description = "The IBM Cloud api token"
 }
 
+
 variable "admin_users" {
   type        = list(string)
   description = "List of email addresses to add to admin group. (Case Sensitive)"
@@ -19,5 +20,16 @@ variable "admin_users" {
     ])
 
     error_message = "Please make sure all emails are valid."
+  }
+}    
+
+variable "logdna" {
+  type = object({
+    name    = string
+    plan = string
+  }) 
+  default = {
+    name = "Logging - Platform logs"
+    plan = "30-day"
   }
 }
