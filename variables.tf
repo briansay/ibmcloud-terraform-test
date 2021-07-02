@@ -1,6 +1,6 @@
 variable "region" {
   type        = string
-  description = "The IBM Cloud region where the cluster will be/has been installed."
+  description = "The IBM Cloud region where everything will be installed."
   default     = "eu-gb"
 }
 
@@ -36,6 +36,16 @@ variable "logdna" {
   }
 }
 
+variable "activity_tracker" {
+  type = object({
+  name    = string
+  plan = string
+  }) 
+  default = {
+    name = "Activity Tracker - Audit"
+    plan = "30-day"
+  }
+}
 variable "admin_group_name" {
   type        = string
   description = "The name for the admin access group"
