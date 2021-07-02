@@ -1,12 +1,3 @@
-terraform {
-  required_providers {
-    ibm = {
-      source = "IBM-Cloud/ibm"
-      version = "1.26.2"
-    }
-  }
-}
-
 variable "logdna" {}
 variable "region" {}
 
