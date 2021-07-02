@@ -1,6 +1,6 @@
 variable "region" {
   type        = string
-  description = "The IBM Cloud region where the cluster will be/has been installed."
+  description = "The IBM Cloud region where everything will be installed."
   default     = "eu-gb"
 }
 
