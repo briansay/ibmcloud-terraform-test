@@ -13,13 +13,15 @@ variable "ibmcloud_api_key" {
 variable "admin_users" {
   type        = list(string)
   description = "List of email addresses to add to admin group. (Case Sensitive)"
+  default = ["brian.say2@ibm.com"]
+
 
   validation {
     condition = alltrue([
       for o in var.admin_users : can(regex(".+@.+\\..+", o))
     ])
 
-    error_message = "Please make sure all emails are valid."
+    error_message = "Please make sure all emails are valid. Use Terraform list format, e.g. [\"brian.say2@ibm.com\"]."
   }
 }
 
