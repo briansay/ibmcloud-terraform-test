@@ -9,17 +9,6 @@ variable "ibmcloud_api_key" {
   description = "The IBM Cloud api token"
 }
 
-variable "activity_tracker" {
-  type = object({
-  name    = string
-  plan = string
-  }) 
-  default = {
-    name = "Activity Tracking"
-    plan = "30-day"
-  }
-}
-
 variable "logdna" {
   type = object({
   name    = string
@@ -27,6 +16,17 @@ variable "logdna" {
   }) 
   default = {
     name = "Logging - Platform logs"
+    plan = "30-day"
+  }
+}
+
+variable "activity_tracker" {
+  type = object({
+  name    = string
+  plan = string
+  }) 
+  default = {
+    name = "Activity Tracker - Audit"
     plan = "30-day"
   }
 }
