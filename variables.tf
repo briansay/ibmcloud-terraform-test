@@ -13,7 +13,7 @@ variable "ibmcloud_api_key" {
 variable "admin_users" {
   type        = list(string)
   description = "List of email addresses to add to admin group. (Case Sensitive)"
-  default = ["brian.say2@ibm.com"]
+  default     = ["brian.say2@ibm.com"]
 
 
   validation {
