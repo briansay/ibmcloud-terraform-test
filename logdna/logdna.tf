@@ -1,6 +1,3 @@
-variable "logdna" {}
-variable "region" {}
-
 resource "ibm_resource_instance" "logdna_instance" {
   name              = var.logdna.name
   service           = "logdna"
