@@ -25,3 +25,13 @@ variable "sysdig" {
     }
   }
 }
+variable "logdna" {
+  type = object({
+    name = string
+    plan = string
+  })
+  default = {
+    name = "Logging - Platform logs"
+    plan = "30-day"
+  }
+}
