@@ -42,6 +42,18 @@ IBM Cloud Schematics requires less configuration and enables you to get started 
 ### Prerequisites
 
 1. [Download the Terraform CLI](https://learn.hashicorp.com/tutorials/terraform/install-cli) - Minimum version `v0.15.4`
+2. [Generate an IBM Cloud API Key](https://www.ibm.com/docs/en/app-connect/containers_cd?topic=servers-creating-cloud-api-key) and save it somewhere secure
+3. Fork and / or Download this repository to your device
+
+### Usage
+
+1. To initialise the terraform directory first navigate to the directory in terminal and run `terraform init`
+2. Create a file called `terraform.tfvars`. This file is part of the `.gitignore` so won't be uploaded to version control. It's used to store the variables that will be used
+3. Inside this file put the IBM Cloud API key that you generated earlier in the format `ibmcloud_api_key = "KEY_GOES_HERE"`
+4. Set any other variables you'd like to set such as which users to make administrator. The variables you'd can to set and their default values can be seen in the [variables.tf](variables.tf) file
+5. Once you have set your variables, run `terraform plan` to generate the plan. You can review the output in the terminal window to see the resources Terraform will create
+6. If you're happy with the plan, type `terraform apply` to apply the generated plan
+7. Log into IBM Cloud and check the newly created resources and access policies
 
 ## Getting started with IBM Cloud Schematics
 
