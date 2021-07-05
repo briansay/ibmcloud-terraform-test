@@ -31,3 +31,8 @@ resource "ibm_iam_access_group_policy" "policy" {
     resource_type = "resource-group"
   }
 }
+
+resource "ibm_iam_user_invite" "invite_user" {
+  users         = var.admin_users
+  access_groups = [ibm_iam_access_group.accgrp_admin.id]
+}
