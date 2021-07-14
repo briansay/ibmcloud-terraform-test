@@ -37,23 +37,54 @@ Once complete you can move on to getting Terraform working. You have a few optio
 
 IBM Cloud Schematics requires less configuration and enables you to get started more quickly. However local development is quicker if you intend to edit and test the Terraform scripts.
 
-## Getting started with Terraform locally
+## Running with Terraform locally
 
 ### Prerequisites
 
 1. [Download the Terraform CLI](https://learn.hashicorp.com/tutorials/terraform/install-cli) - Minimum version `v0.15.4`
+2. [Generate an IBM Cloud API Key](https://www.ibm.com/docs/en/app-connect/containers_cd?topic=servers-creating-cloud-api-key) and save it somewhere secure
+3. Fork and / or Download this repository to your device
 
-## Getting started with IBM Cloud Schematics
+### Usage
+
+1. To initialise the terraform directory first navigate to the directory in terminal and run `terraform init`
+2. Create a file called `terraform.tfvars`. This file is part of the `.gitignore` so won't be uploaded to version control. It's used to store the variables that will be used
+3. Inside this file put the IBM Cloud API key that you generated earlier in the format `ibmcloud_api_key = "KEY_GOES_HERE"`
+4. Set any other variables you'd like to set such as which users to make administrator. The variables you'd can to set and their default values can be seen in the [variables.tf](variables.tf) file
+5. Once you have set your variables, run `terraform plan` to generate the plan. You can review the output in the terminal window to see the resources Terraform will create
+6. If you're happy with the plan, type `terraform apply` to apply the generated plan
+7. Log into IBM Cloud and check the newly created resources and access policies
+
+## Running with IBM Cloud Schematics
 
 ### Prerequisites
 
 1. [Create an IBM Cloud Schematics instance in your account](https://cloud.ibm.com/docs/schematics?topic=schematics-get-started-terraform)
-2. Fork this repo & copy/store the URL, or copy/store this repo's URL (to be used in the next step)
-3. [Create a workspace in your IBM Cloud Schematics instance](https://cloud.ibm.com/docs/schematics?topic=schematics-workspace-setup)
+2. Fork this repo & copy/store the URL, or copy/store this repo's URL (to be used in the next step). IBM Cloud supports using github.ibm.com
+3. [Create a GitHub personal access token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) with `repo` permissions on optionally `admin:repo_hook` to enable webhook functionality and save it somewhere secure 
+4. [Generate an IBM Cloud API Key](https://www.ibm.com/docs/en/app-connect/containers_cd?topic=servers-creating-cloud-api-key)
+5. [Create a workspace in your IBM Cloud Schematics instance](https://cloud.ibm.com/docs/schematics?topic=schematics-workspace-setup)
 
-## Usage
 
-tbd
+### Usage
+
+1. In the new workspace go to Settings using the menu on the left hand menu
+
+2. In the repository URL put either the URL from your forked repo or the master repo from step 2 in the prerequisites
+
+3. Enter the personal access token you setup earlier in step 3 of the prerequisites
+
+4. Ensure `terraform_v0.14` or  higher is selected for the Terraform version when importing your Terraform template
+
+5. Press `Save template information`
+
+6. Fill in the variables as you need to including the IBM Cloud api key. There are default values set for most variables which will work for setting up the account
+  
+    The format for the admin list is `["user.1@example.com","user2@example.com"]`
+
+7. Press `Generate plan` at the top right of the page
+8. Review the plan and check that the correct values have been entered for the various resources
+9. If you're happy with the plan, press the `Apply plan` button at the top right of the page and your account will be set up.
 
 ## Support
 
