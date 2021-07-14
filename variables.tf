@@ -9,6 +9,22 @@ variable "ibmcloud_api_key" {
   description = "The IBM Cloud api token"
 }
 
+variable "sysdig" {
+  type = object({
+    name = string
+    plan = string
+    parameters = object({
+      default_receiver : bool
+    })
+  })
+  default = {
+    name = "Sysdig - Platform Metrics"
+    plan = "graduated-tier"
+    parameters = {
+      default_receiver : true,
+    }
+  }
+}
 
 variable "admin_users" {
   type        = list(string)
@@ -38,9 +54,9 @@ variable "logdna" {
 
 variable "activity_tracker" {
   type = object({
-  name    = string
-  plan = string
-  }) 
+    name = string
+    plan = string
+  })
   default = {
     name = "Activity Tracker - Audit"
     plan = "30-day"
