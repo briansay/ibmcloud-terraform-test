@@ -17,6 +17,8 @@ resource "ibm_iam_access_group_policy" "account_management_admin_policy" {
 resource "ibm_iam_access_group_members" "accgrp_admin_members" {
   access_group_id = ibm_iam_access_group.accgrp_admin.id
   ibm_ids         = var.admin_users
+
+  depends_on = [ibm_iam_user_invite.invite_user]
 }
 
 data "ibm_resource_group" "group" {
@@ -30,4 +32,9 @@ resource "ibm_iam_access_group_policy" "policy" {
   resources {
     resource_type = "resource-group"
   }
+}
+
+resource "ibm_iam_user_invite" "invite_user" {
+  users         = var.admin_users
+  access_groups = [ibm_iam_access_group.accgrp_admin.id]
 }
