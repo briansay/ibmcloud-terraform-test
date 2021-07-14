@@ -1,0 +1,2 @@
+variable "logdna" {}
+variable "region" {}
