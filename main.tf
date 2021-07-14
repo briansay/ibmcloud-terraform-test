@@ -2,7 +2,8 @@ module "sysdig" {
   source = "./sysdig"
   sysdig = var.sysdig
   region = var.region
-  
+}
+
 module "access_group" {
   source           = "./access_group"
   admin_users      = var.admin_users
