@@ -28,3 +28,10 @@ module "activity_tracker" {
   }
   region = var.region
 }
+
+module "vpc" {
+  source                   = "./vpc"
+  region                   = var.region
+  vpc_name                 = var.vpc.name
+  total_ipv4_address_count = var.vpc.total_ipv4_address_count
+}
