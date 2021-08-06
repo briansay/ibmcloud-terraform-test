@@ -35,3 +35,14 @@ module "vpc" {
   vpc_name                 = var.vpc.name
   total_ipv4_address_count = var.vpc.total_ipv4_address_count
 }
+
+module "roks" {
+  source           = "./roks"
+  vpc_id           = module.vpc.vpc_id
+  subnet_id        = module.vpc.vpc_subnet1_id
+  region           = var.region
+  roks             = var.roks
+  logdna_name      = module.logdna.logdna_name
+  logdna_key       = module.logdna.logdna_key
+  ibmcloud_api_key = var.ibmcloud_api_key
+}

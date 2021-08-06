@@ -80,3 +80,23 @@ variable "vpc" {
   }
 
 }
+
+variable "roks" {
+  type = object({
+    cos_name     = string
+    cluster_name = string
+
+    kube_version        = string
+    worker_node_flavour = string
+    worker_node_count   = number
+  })
+  default = {
+    vpc_name     = "roks-vpc"
+    cos_name     = "ROKS Cluster Image Storage"
+    cluster_name = "dev-cluster"
+
+    kube_version        = "4.6.38_openshift"
+    worker_node_flavour = "bx2.16x64"
+    worker_node_count   = 4
+  }
+}
