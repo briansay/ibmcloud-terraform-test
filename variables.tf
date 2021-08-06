@@ -9,21 +9,10 @@ variable "ibmcloud_api_key" {
   description = "The IBM Cloud api token"
 }
 
-variable "sysdig" {
-  type = object({
-    name = string
-    plan = string
-    parameters = object({
-      default_receiver : bool
-    })
-  })
-  default = {
-    name = "Sysdig - Platform Metrics"
-    plan = "graduated-tier"
-    parameters = {
-      default_receiver : true,
-    }
-  }
+variable "admin_group_name" {
+  type        = string
+  description = "The name for the admin access group"
+  default     = "Admin"
 }
 
 variable "admin_users" {
@@ -31,24 +20,12 @@ variable "admin_users" {
   description = "List of email addresses to add to admin group. (Case Sensitive)"
   default     = ["brian.say2@ibm.com", "tom.madelin@ibm.com"]
 
-
   validation {
     condition = alltrue([
       for o in var.admin_users : can(regex(".+@.+\\..+", o))
     ])
 
     error_message = "Please make sure all emails are valid. Use Terraform list format, e.g. [\"brian.say2@ibm.com\"]."
-  }
-}
-
-variable "logdna" {
-  type = object({
-    name = string
-    plan = string
-  })
-  default = {
-    name = "Logging - Platform logs"
-    plan = "30-day"
   }
 }
 
@@ -62,23 +39,16 @@ variable "activity_tracker" {
     plan = "30-day"
   }
 }
-variable "admin_group_name" {
-  type        = string
-  description = "The name for the admin access group"
-  default     = "Admin"
-}
 
-variable "vpc" {
+variable "logdna" {
   type = object({
-    name                     = string
-    total_ipv4_address_count = number
+    name = string
+    plan = string
   })
-
   default = {
-    name                     = "dev-vpc"
-    total_ipv4_address_count = 1024
+    name = "Logging - Platform logs"
+    plan = "30-day"
   }
-
 }
 
 variable "roks" {
@@ -100,3 +70,34 @@ variable "roks" {
     worker_node_count   = 4
   }
 }
+
+variable "sysdig" {
+  type = object({
+    name = string
+    plan = string
+    parameters = object({
+      default_receiver : bool
+    })
+  })
+  default = {
+    name = "Sysdig - Platform Metrics"
+    plan = "graduated-tier"
+    parameters = {
+      default_receiver : true,
+    }
+  }
+}
+
+variable "vpc" {
+  type = object({
+    name                     = string
+    total_ipv4_address_count = number
+  })
+
+  default = {
+    name                     = "dev-vpc"
+    total_ipv4_address_count = 1024
+  }
+
+}
+
