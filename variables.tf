@@ -67,3 +67,16 @@ variable "admin_group_name" {
   description = "The name for the admin access group"
   default     = "Admin"
 }
+
+variable "vpc" {
+  type = object({
+    name                     = string
+    total_ipv4_address_count = number
+  })
+
+  default = {
+    name                     = "dev-vpc"
+    total_ipv4_address_count = 1024
+  }
+
+}
