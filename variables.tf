@@ -61,7 +61,6 @@ variable "roks" {
     worker_node_count   = number
   })
   default = {
-    vpc_name     = "roks-vpc"
     cos_name     = "ROKS Cluster Image Storage"
     cluster_name = "dev-cluster"
 
