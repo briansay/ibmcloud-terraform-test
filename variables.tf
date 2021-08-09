@@ -61,7 +61,7 @@ variable "roks" {
     worker_node_count   = number
   })
   default = {
-    cos_name     = "ROKS Cluster Image Storage"
+    cos_name     = "ROKS Image Registry"
     cluster_name = "dev-cluster"
 
     kube_version        = "4.6.38_openshift"
