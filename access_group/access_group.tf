@@ -22,7 +22,7 @@ resource "ibm_iam_access_group_members" "accgrp_admin_members" {
 }
 
 data "ibm_resource_group" "group" {
-  name = "Default"
+  name = "default"
 }
 
 resource "ibm_iam_access_group_policy" "policy" {
